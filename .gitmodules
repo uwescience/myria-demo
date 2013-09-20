@@ -1,0 +1,4 @@
+[submodule "myria"]
+	path = myria
+	url = git@github.com:uwescience/myria.git
+	branch = master
