@@ -6,7 +6,7 @@ import subprocess
 
 json = """{
   "relation_key" : {
-    "user_name" : "whitaker",
+    "user_name" : "public",
     "program_name" : "adhoc",
     "relation_name" : "nccdc"
   },
