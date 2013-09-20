@@ -1,0 +1,15 @@
+DROP DATABASE IF EXISTS nccdc;
+CREATE DATABASE nccdc;
+\c nccdc;
+
+-- Create a place to stash errors
+CREATE TABLE nccdc_errors (cmdtime timestamp with time zone, relname text, filename text,
+linenum integer, bytenum integer, errmsg text, rawdata text, rawbytes bytea);
+
+CREATE table ipflow(source varchar(64) not NULL, target varchar(64) not NULL,
+       ip_proto smallint, timestamp integer, col5 integer, col6 integer, col7 integer)
+       WITH(appendonly=true, orientation=column)
+       DISTRIBUTED RANDOMLY;
+
+COPY ipflow FROM '/kobe2/whitaker/nccdc/nccdc_edges.txt' WITH DELIMITER '|'
+LOG ERRORS INTO nccdc_errors SEGMENT REJECT LIMIT 2 ROWS;
