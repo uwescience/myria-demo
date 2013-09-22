@@ -2,8 +2,6 @@
 
 import subprocess
 
-# Run this from dbserver01
-
 json = """{
   "relation_key" : {
     "user_name" : "public",
@@ -20,5 +18,5 @@ json = """{
 }
 """
 
-subprocess.check_call(['curl', '-i', '-XPOST', 'localhost:1776/dataset', '-H',
+subprocess.check_call(['curl', '-i', '-XPOST', 'vega.cs.washington.edu:1776/dataset', '-H',
  'Content-type: application/json',  '-d',  json])
