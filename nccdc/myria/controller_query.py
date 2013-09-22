@@ -18,7 +18,7 @@ def generate():
         'op_type' : 'TableScan',
         'op_name' : 'Scan',
         "relation_key" : {
-            "user_name" : "whitaker",
+            "user_name" : "public",
             "program_name" : "adhoc",
             "relation_name" : input_relation_name,
         }
@@ -109,7 +109,7 @@ def generate():
     'op_type' : 'TableScan',
        'op_name' : 'Scan2',
        "relation_key" : {
-           "user_name" : "whitaker",
+           "user_name" : "public",
            "program_name" : "adhoc",
            "relation_name" : input_relation_name,
        }
@@ -164,7 +164,7 @@ def generate():
        'arg_child' : 'Consumer',
        'arg_overwrite_table' : True,
        'relation_key' : {
-           'user_name' : 'whitaker',
+           'user_name' : 'public',
            'program_name' : 'adhoc',
            'relation_name' : 'nccdc_controllers'
        }
