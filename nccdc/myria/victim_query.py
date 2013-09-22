@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 
-"""Identify DDOS victims within a given time window"""
+"""Identify DDOS victims within a given time window
+
+Roughly:
+SELECT dst FROM nccdc GROUP BY dst HAVING COUNT(src) > 10000;
+"""
 
 import json
 
