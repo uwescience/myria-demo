@@ -93,7 +93,7 @@ def generate():
 
     groupby = {
         "op_name": "GroupBy",
-        "op_type": "SingleGroupByAggregate",
+        "op_type": "SingleGroupByAggregateNoBuffer",
         "arg_child": "Gather",
 
         "arg_agg_fields": [
@@ -140,8 +140,8 @@ def generate():
 
     return pretty_json({
         'fragments' : [fragment1, fragment2],
-        'logical_ra' : 'nccdc query',
-        'raw_datalog' : 'nccdc query'
+        'logical_ra' : 'nccdc victim query',
+        'raw_datalog' : 'nccdc victim query'
     })
 
 if __name__ == "__main__":
