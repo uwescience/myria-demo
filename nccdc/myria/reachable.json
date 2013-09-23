@@ -1,21 +1,6 @@
 {
 	"fragments": 
-	[
-		{
-			"operators": 
-			[
-			{
-			  "op_name" : "cc",
-			  "op_type" : "CollectConsumer",
-			  "arg_schema" : {"column_types":["STRING_TYPE"],"column_names":["addr"]},
-			  "arg_operator_id" : "7"
-			}
-			],
-			"workers": 
-			[
-				0
-			]
-		},
+         [
 		{
 			"operators": 
 			[
@@ -51,7 +36,7 @@
 				"relation_key" : {
 					"user_name" : "public",
 					"program_name" : "adhoc",
-					"relation_name" : "nccdc_bots"
+					"relation_name" : "nccdc_reachable_target"
 				}
 			},
 			{
@@ -85,7 +70,7 @@
 				"arg_operator_id" : "3",
 				"arg_pf" : {
 					"type" : "SingleFieldHash",
-					"index" : 1
+					"index" : 0
 				}
 			}
 			]
@@ -97,15 +82,13 @@
 				"op_name" : "sc2a",
 				"op_type" : "ShuffleConsumer",
 				"arg_operator_id" : "2",
-				"arg_schema" : {"column_types":["STRING_TYPE"],
-                                                "column_names":["addr"]}
+				"arg_schema" : {"column_types":["INT_TYPE"],"column_names":["followee"]}
 			},
 			{
 				"op_name" : "sc3a",
 				"op_type" : "ShuffleConsumer",
 				"arg_operator_id" : "4",
-				"arg_schema" : {"column_types":["STRING_TYPE"],
-                                                "column_names":["addr"]}
+				"arg_schema" : {"column_types":["INT_TYPE"],"column_names":["followee"]}
 			},
 			{
 				"op_name" : "eosReceivera",
@@ -137,17 +120,13 @@
 				"op_name" : "send2joina",
 				"op_type" : "LocalMultiwayConsumer",
 				"arg_operator_id" : "5",
-				"arg_schema" : {"column_types":["STRING_TYPE"],
-                                                "column_names":["addr"]}
+				"arg_schema" : {"column_types":["INT_TYPE"],"column_names":["followee"]}
 			},
 			{
 				"op_name" : "sc1g",
 				"op_type" : "ShuffleConsumer",
 				"arg_operator_id" : "3",
-				"arg_schema" : {
-                                    "column_types":["STRING_TYPE", "STRING_TYPE"],
-                                    "column_names":["src","dst"]
-                                }
+				"arg_schema" : {"column_types":["INT_TYPE","INT_TYPE"],"column_names":["follower","followee"]}
 			},
 			{
 				"op_name" : "joina",
@@ -155,9 +134,9 @@
 				"arg_child1" : "send2joina",
 				"arg_child2" : "sc1g",
 				"arg_columns1" : ["0"],
-				"arg_columns2" : ["1"],
+				"arg_columns2" : ["0"],
 				"arg_select1" : [],
-				"arg_select2" : ["0"]
+				"arg_select2" : ["1"]
 			},
 			{
 				"op_name" : "sp3a",
@@ -175,24 +154,23 @@
 			"operators": 
 			[
 			{
-				"op_name" : "send2server",
-				"op_type" : "LocalMultiwayConsumer",
-				"arg_operator_id" : "6",
-				"arg_schema" : {"column_types":["STRING_TYPE"],"column_names":["addr"]}
+			    "op_name" : "send2server",
+			    "op_type" : "LocalMultiwayConsumer",
+			    "arg_operator_id" : "6",
+			    "arg_schema" : {"column_types":["INT_TYPE"],
+                                            "column_names":["followee"]}
 			},
-			{
-				"op_name" : "count",
-				"op_type" : "Aggregate",
-				"arg_child" : "send2server",
-				"arg_agg_fields" : ["0"],
-				"arg_agg_ops" : ["1"]
-			},
-			{
-				"op_name" : "cpc",
-				"op_type" : "CollectProducer",
-				"arg_operator_id" : "7",
-				"arg_child" : "count"
-			}
+                        {
+                            "op_name": "FinalInsert",
+                            "op_type" : "DbInsert",
+                            "arg_child" : "send2server",
+                            "arg_overwrite_table" : true,
+                            "relation_key" : {
+                                "user_name" : "public",
+                                "program_name" : "adhoc",
+                                "relation_name" : "reachable"
+                            }
+                        }
 			]
 		}
 	],
