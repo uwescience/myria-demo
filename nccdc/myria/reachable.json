@@ -82,13 +82,13 @@
 				"op_name" : "sc2a",
 				"op_type" : "ShuffleConsumer",
 				"arg_operator_id" : "2",
-				"arg_schema" : {"column_types":["INT_TYPE"],"column_names":["followee"]}
+				"arg_schema" : {"column_types":["STRING_TYPE"],"column_names":["followee"]}
 			},
 			{
 				"op_name" : "sc3a",
 				"op_type" : "ShuffleConsumer",
 				"arg_operator_id" : "4",
-				"arg_schema" : {"column_types":["INT_TYPE"],"column_names":["followee"]}
+				"arg_schema" : {"column_types":["STRING_TYPE"],"column_names":["followee"]}
 			},
 			{
 				"op_name" : "eosReceivera",
@@ -120,13 +120,13 @@
 				"op_name" : "send2joina",
 				"op_type" : "LocalMultiwayConsumer",
 				"arg_operator_id" : "5",
-				"arg_schema" : {"column_types":["INT_TYPE"],"column_names":["followee"]}
+				"arg_schema" : {"column_types":["STRING_TYPE"],"column_names":["followee"]}
 			},
 			{
 				"op_name" : "sc1g",
 				"op_type" : "ShuffleConsumer",
 				"arg_operator_id" : "3",
-				"arg_schema" : {"column_types":["INT_TYPE","INT_TYPE"],"column_names":["follower","followee"]}
+				"arg_schema" : {"column_types":["STRING_TYPE","STRING_TYPE"],"column_names":["follower","followee"]}
 			},
 			{
 				"op_name" : "joina",
@@ -157,7 +157,7 @@
 			    "op_name" : "send2server",
 			    "op_type" : "LocalMultiwayConsumer",
 			    "arg_operator_id" : "6",
-			    "arg_schema" : {"column_types":["INT_TYPE"],
+			    "arg_schema" : {"column_types":["STRING_TYPE"],
                                             "column_names":["followee"]}
 			},
                         {
