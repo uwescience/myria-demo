@@ -70,7 +70,7 @@
 				"arg_operator_id" : "3",
 				"arg_pf" : {
 					"type" : "SingleFieldHash",
-					"index" : 0
+					"index" : 1
 				}
 			}
 			]
@@ -82,13 +82,13 @@
 				"op_name" : "sc2a",
 				"op_type" : "ShuffleConsumer",
 				"arg_operator_id" : "2",
-				"arg_schema" : {"column_types":["STRING_TYPE"],"column_names":["followee"]}
+				"arg_schema" : {"column_types":["STRING_TYPE"],"column_names":["addr"]}
 			},
 			{
 				"op_name" : "sc3a",
 				"op_type" : "ShuffleConsumer",
 				"arg_operator_id" : "4",
-				"arg_schema" : {"column_types":["STRING_TYPE"],"column_names":["followee"]}
+				"arg_schema" : {"column_types":["STRING_TYPE"],"column_names":["addr"]}
 			},
 			{
 				"op_name" : "eosReceivera",
@@ -120,13 +120,13 @@
 				"op_name" : "send2joina",
 				"op_type" : "LocalMultiwayConsumer",
 				"arg_operator_id" : "5",
-				"arg_schema" : {"column_types":["STRING_TYPE"],"column_names":["followee"]}
+				"arg_schema" : {"column_types":["STRING_TYPE"],"column_names":["addr"]}
 			},
 			{
 				"op_name" : "sc1g",
 				"op_type" : "ShuffleConsumer",
 				"arg_operator_id" : "3",
-				"arg_schema" : {"column_types":["STRING_TYPE","STRING_TYPE"],"column_names":["follower","followee"]}
+				"arg_schema" : {"column_types":["STRING_TYPE","STRING_TYPE"],"column_names":["src","dst"]}
 			},
 			{
 				"op_name" : "joina",
@@ -134,9 +134,9 @@
 				"arg_child1" : "send2joina",
 				"arg_child2" : "sc1g",
 				"arg_columns1" : ["0"],
-				"arg_columns2" : ["0"],
+				"arg_columns2" : ["1"],
 				"arg_select1" : [],
-				"arg_select2" : ["1"]
+				"arg_select2" : ["0"]
 			},
 			{
 				"op_name" : "sp3a",
@@ -158,7 +158,7 @@
 			    "op_type" : "LocalMultiwayConsumer",
 			    "arg_operator_id" : "6",
 			    "arg_schema" : {"column_types":["STRING_TYPE"],
-                                            "column_names":["followee"]}
+                                            "column_names":["addr"]}
 			},
                         {
                             "op_name": "FinalInsert",
@@ -168,7 +168,7 @@
                             "relation_key" : {
                                 "user_name" : "public",
                                 "program_name" : "adhoc",
-                                "relation_name" : "reachable"
+                                "relation_name" : "nccdc_reachable"
                             }
                         }
 			]
