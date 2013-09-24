@@ -3,9 +3,9 @@
 import subprocess
 import time
 
-import q1
+import q1_1m
 
-plan = q1.generate()
+plan = q1_1m.generate()
 
 subprocess.check_call(['curl', '-i', '-XPOST',
                        'vega.cs.washington.edu:1776/query', '-H',
