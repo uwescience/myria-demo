@@ -15,9 +15,9 @@ def generate():
         'op_type' : 'TableScan',
         'op_name' : 'Scan1',
         "relation_key" : {
-            "user_name" : "whitaker",
+            "user_name" : "public",
             "program_name" : "adhoc",
-            "relation_name" : "sp2bench_50k",
+            "relation_name" : "sp2bench_1m",
         }
     }
 
@@ -49,9 +49,9 @@ def generate():
         'op_type' : 'TableScan',
         'op_name' : 'Scan2',
         "relation_key" : {
-            "user_name" : "whitaker",
+            "user_name" : "public",
             "program_name" : "adhoc",
-            "relation_name" : "sp2bench_50k",
+            "relation_name" : "sp2bench_1m",
         }
     }
 
@@ -182,9 +182,9 @@ def generate():
         'op_type' : 'TableScan',
         'op_name' : 'Scan3',
         "relation_key" : {
-            "user_name" : "whitaker",
+            "user_name" : "public",
             "program_name" : "adhoc",
-            "relation_name" : "sp2bench_50k",
+            "relation_name" : "sp2bench_1m",
         }
     }
 
@@ -271,9 +271,9 @@ def generate():
         'arg_child' : 'Join2',
         'arg_overwrite_table' : True,
         'relation_key' : {
-            'user_name' : 'whitaker',
+            'user_name' : 'public',
             'program_name' : 'adhoc',
-            'relation_name' : 'sp2bench_50k_q1'
+            'relation_name' : 'sp2bench_1m_q1'
         }
     }
 
