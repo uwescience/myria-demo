@@ -280,8 +280,8 @@ def generate():
 
     return pretty_json({
         'fragments' : [fragment1, fragment2, fragment3, fragment4, fragment5],
-        'logical_ra' : 'sp2bench Q1',
-        'raw_datalog' : 'sp2bench Q1'
+        'logical_ra' : 'sp2bench Q1 @ 100m',
+        'raw_datalog' : 'sp2bench Q1 @ 100m'
     })
 
 if __name__ == "__main__":
