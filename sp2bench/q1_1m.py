@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 
-"""Filter out a relevant time range in the nccd dataset.
-
-Store the result in a new nccdc_filtered relation
-"""
+"""sp2bench Q1"""
 
 import json
 
