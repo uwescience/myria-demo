@@ -2,3 +2,6 @@
 	path = myria
 	url = git@github.com:uwescience/myria.git
 	branch = master
+[submodule "myria-web"]
+	path = myria-web
+	url = https://github.com/uwescience/myria-web.git
