@@ -12,7 +12,7 @@ json = """{
     "column_types" : ["INT_TYPE", "INT_TYPE"],
     "column_names" : ["followee", "follower"]
   },
-  "file_name" : "hdfs://vega.cs.washington.edu:8020//datasets/twitter"
+  "file_name" : "hdfs://vega.cs.washington.edu:8020//datasets/twitter/twitter_rv.net"
 }
 """
 
