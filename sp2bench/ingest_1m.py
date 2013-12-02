@@ -12,7 +12,7 @@ json = """{
     "column_types" : ["STRING_TYPE", "STRING_TYPE", "STRING_TYPE"],
     "column_names" : ["subject", "predicate", "object"]
   },
-  "file_name" : "file:///disk1/whitaker/sp2bench/sp2b/bin/sp2b_1m.txt"
+  "file_name" : "hdfs://vega.cs.washington.edu:8020/datasets/sp2bench/sp2b_1m.txt"
 }"""
 
 subprocess.check_call(['curl', '-i', '-XPOST',
