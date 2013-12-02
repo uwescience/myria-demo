@@ -13,7 +13,7 @@ json = """{
                       "INT_TYPE", "INT_TYPE", "INT_TYPE"],
     "column_names" : ["src", "dst", "proto", "time", "col4", "col5", "col6"]
   },
-  "file_name" : "file:///disk1/whitaker/nccdc/nccdc_edges.txt",
+  "file_name" : "hdfs://vega.cs.washington.edu:8020/datasets/nccdc/nccdc_edges.txt",
   "delimiter" : "|"
 }
 """
